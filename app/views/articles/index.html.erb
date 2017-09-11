@@ -1,0 +1,44 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to 'New article', new_article_path %></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li><%= link_to 'New article', new_article_path %></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col m12">
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Text</th>
+            <th colspan="2"></th>
+          </tr>
+         
+          <% @articles.each do |article| %>
+            <tr>
+              <td><%= article.title %></td>
+              <td><%= article.text %></td>
+              <td><%= link_to 'Show', article_path(article) %></td>
+              <td><%= link_to 'Edit', edit_article_path(article) %></td>
+              <td><%= link_to 'Destroy', article_path(article),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </table>      
+    </div> 
+  </div>
+</div>
+
+<script type="text/javascript">
+  $( document ).ready(function(){
+   $(".button-collapse").sideNav();
+  })
+</script>
