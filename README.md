@@ -1,2 +1,0 @@
-# mglriosr
-Personal Blog
